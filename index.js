@@ -1,5 +1,4 @@
 // Read instructions. And remove this line.
-let secretNumber = randomInt(100);
 
 function randomInt(max){
     return Math.floor(Math.random() * Math.floor(max));
@@ -7,8 +6,18 @@ function randomInt(max){
 console.log(randomInt(100));
 console.log(randomInt(20));
 
+const secretNumber = randomInt(100);
+
 function getUserGuess(){
-    let guess = document.getElementById('user-input').value;
-    return guess
+    const guess = document.getElementById('user-input').value;
+    return parseInt(guess, 10);
 } 
-globalThis.getUserGuess = getUserGuess
+globalThis.getUserGuess = getUserGuess;
+
+document.addEventListener('keyup', keyPress);
+
+function keyPress(enter){
+    if(enter.key == "Enter"){
+        console.log(getUserGuess())
+    }
+} 
